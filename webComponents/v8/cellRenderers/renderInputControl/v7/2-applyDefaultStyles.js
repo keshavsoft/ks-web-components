@@ -1,8 +1,8 @@
-const PREDEFINED_STYLES = {
-    default: "width: 100%; box-sizing: border-box; border: 1px solid #d1d5db; border-radius: 0.375rem; padding: 0.375rem 0.75rem; font-size: 0.875rem; outline: none; transition: all 0.2s ease-in-out; color: #374151; background-color: #ffffff; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);",
-    minimal: "width: 100%; box-sizing: border-box; border: none; border-bottom: 2px solid #d1d5db; border-radius: 0; padding: 0.375rem 0.5rem; font-size: 0.875rem; outline: none; transition: all 0.2s ease-in-out; color: #374151; background-color: transparent;",
-    pill: "width: 100%; box-sizing: border-box; border: 1px solid #d1d5db; border-radius: 9999px; padding: 0.375rem 1rem; font-size: 0.875rem; outline: none; transition: all 0.2s ease-in-out; color: #374151; background-color: #ffffff; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);",
-    danger: "width: 100%; box-sizing: border-box; border: 1px solid #ef4444; border-radius: 0.375rem; padding: 0.375rem 0.75rem; font-size: 0.875rem; outline: none; transition: all 0.2s ease-in-out; color: #b91c1c; background-color: #fef2f2; box-shadow: 0 1px 2px 0 rgba(239, 68, 68, 0.1);"
+const PREDEFINED_CLASSES = {
+    default: "w-full box-border border border-gray-300 rounded-md px-3 py-1.5 text-sm outline-none transition-all duration-200 text-gray-700 bg-white shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500",
+    minimal: "w-full box-border border-b-2 border-gray-300 rounded-none px-2 py-1.5 text-sm outline-none transition-all duration-200 text-gray-700 bg-transparent focus:border-blue-500",
+    pill: "w-full box-border border border-gray-300 rounded-full px-4 py-1.5 text-sm outline-none transition-all duration-200 text-gray-700 bg-white shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500",
+    danger: "w-full box-border border border-red-500 rounded-md px-3 py-1.5 text-sm outline-none transition-all duration-200 text-red-700 bg-red-50 shadow-sm focus:ring-2 focus:ring-red-500 focus:border-red-500"
 };
 
 const showLogs = false; // Set to true to enable logging
@@ -10,15 +10,15 @@ const showLogs = false; // Set to true to enable logging
 const applyDefaultStyles = (inInput, inOptions) => {
     if (showLogs) console.log("applyDefaultStyles", inInput, inOptions);
     // Determine which theme to use, defaulting to 'default'
-    const styleKey = (inOptions.theme && PREDEFINED_STYLES[inOptions.theme]) ? inOptions.theme : "default";
+    const styleKey = (inOptions.theme && PREDEFINED_CLASSES[inOptions.theme]) ? inOptions.theme : "default";
 
-    // Apply the predefined inline CSS
-    inInput.style.cssText = PREDEFINED_STYLES[styleKey];
+    // Apply the predefined Tailwind CSS classes
+    inInput.className = PREDEFINED_CLASSES[styleKey];
 
     // If a className is passed from outside, we optionally append it
     if (inOptions.className) {
-        inInput.className = inOptions.className;
+        inInput.className = `${inInput.className} ${inOptions.className}`;
     };
 };
 
-export { applyDefaultStyles, PREDEFINED_STYLES };
+export { applyDefaultStyles, PREDEFINED_CLASSES };

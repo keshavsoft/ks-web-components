@@ -7,7 +7,6 @@ const showLogs = false;
 class KsTableCellContent extends HTMLElement {
     constructor() {
         super();
-        this.attachShadow({ mode: 'open' });
         this._inputs = {};
     }
 
@@ -26,7 +25,7 @@ class KsTableCellContent extends HTMLElement {
         };
 
         // Clear previous content
-        this.shadowRoot.innerHTML = '';
+        this.innerHTML = '';
 
         if (options.dataKey || options.name) {
             const nameToSet = options.name || options.dataKey;
@@ -40,22 +39,22 @@ class KsTableCellContent extends HTMLElement {
         }
 
         if (options?.showInput) {
-            renderInputControl(this.shadowRoot, options);
+            renderInputControl(this, options);
             return;
         };
 
         // 2. Check for Array Data
         if (Array.isArray(val)) {
-            renderArrayView(this.shadowRoot, val);
+            renderArrayView(this, val);
             return;
         }
 
         // 3. Fallback to default text rendering
-        renderDefault(this.shadowRoot, val);
+        renderDefault(this, val);
     };
 
     get value() {
-        const input = this.shadowRoot.querySelector('input, select, textarea');
+        const input = this.querySelector('input, select, textarea');
         if (input) {
             return input.type === 'checkbox' ? input.checked : input.value;
         }
