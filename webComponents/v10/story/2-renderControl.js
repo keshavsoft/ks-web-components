@@ -33,5 +33,5 @@ export const renderControl = (element, val, options) => {
     }
 
     // Fallback to default text rendering
-    renderDefault(element, val);
+    renderDefault(element, val, options);
 };

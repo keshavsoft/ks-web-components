@@ -45,4 +45,15 @@ const applyDefaultStyles = (inInput, inOptions) => {
     };
 };
 
-export { applyDefaultStyles, PREDEFINED_CLASSES, PREDEFINED_BUTTON_CLASSES };
+const PREDEFINED_TEXT_CLASSES = {
+    default: "text-gray-700 text-sm whitespace-nowrap",
+    // Table body cell styles (from tableClasses.js)
+    tableCellStandard: "px-4 py-3 whitespace-nowrap text-sm text-gray-700",
+    tableCellCompact: "px-3 py-2 whitespace-nowrap text-xs text-gray-700",
+    tableCellExtraCompact: "px-2 py-1.5 whitespace-nowrap text-[11px] text-gray-700",
+    tableCellCompactMinimal: "px-4 py-3 whitespace-nowrap text-sm text-gray-700",
+    tableCellStandardMinimal: "px-4 py-3.5 whitespace-nowrap text-base text-gray-700",
+    tableCellSpaciousMinimal: "px-5 py-4 whitespace-nowrap text-lg text-gray-700"
+};
+
+export { applyDefaultStyles, PREDEFINED_CLASSES, PREDEFINED_BUTTON_CLASSES, PREDEFINED_TEXT_CLASSES };

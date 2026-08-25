@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dynamic Component Creation Test</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="bg-gray-100 p-8 font-sans">
     <div class="max-w-2xl mx-auto bg-white p-6 rounded-lg shadow-md">
         <h1 class="text-2xl font-bold text-gray-800 mb-6 border-b pb-2">Dynamically Create KsTableCellContent</h1>
-        
+
         <div class="space-y-6" id="dynamic-container">
             <!-- Dynamically created components will be appended here -->
         </div>
@@ -34,7 +36,7 @@
             {
                 label: "Dynamically created Default View",
                 cellValue: "I am just normal text!",
-                options: {} // No showInput, just renders default
+                options: { theme: "tableCellExtraCompact" }
             },
             {
                 label: "Dynamically created Array View",
@@ -44,9 +46,9 @@
             {
                 label: "Dynamically created Vertical Form with Button",
                 cellValue: "Pre-filled text",
-                options: { 
-                    controlType: "text", 
-                    showInput: true, 
+                options: {
+                    controlType: "text",
+                    showInput: true,
                     showButton: true,
                     buttonText: "Update",
                     theme: "verticalStandard"
@@ -66,7 +68,7 @@
 
             // 3. Programmatically CREATE the custom Web Component
             const cellComponent = document.createElement("ks-table-cell-content-common");
-            
+
             // 4. Set inputs via JS property
             cellComponent.inputs = {
                 cellValue: tc.cellValue,
@@ -81,4 +83,5 @@
         });
     </script>
 </body>
+
 </html>
