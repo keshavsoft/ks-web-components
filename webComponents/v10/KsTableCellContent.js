@@ -1,9 +1,14 @@
 import { applyAttributes } from "./story/1-applyAttributes.js";
 import { renderControl } from "./story/2-renderControl.js";
+import { PREDEFINED_CLASSES, PREDEFINED_BUTTON_CLASSES, PREDEFINED_TEXT_CLASSES } from "./cellRenderers/renderInputControl/v7/2-applyDefaultStyles.js";
 
 const showLogs = false;
 
 class KsTableCellContent extends HTMLElement {
+    static get PREDEFINED_CLASSES() { return PREDEFINED_CLASSES; }
+    static get PREDEFINED_BUTTON_CLASSES() { return PREDEFINED_BUTTON_CLASSES; }
+    static get PREDEFINED_TEXT_CLASSES() { return PREDEFINED_TEXT_CLASSES; }
+
     constructor() {
         super();
         this._inputs = {};
@@ -50,5 +55,7 @@ window.ks.webComponents = window.ks.webComponents || {};
 Object.assign(KsTableCellContent, window.ks.webComponents.KsTableCellContent || {});
 
 window.ks.webComponents.KsTableCellContent = KsTableCellContent;
+window.ks.webComponents.KsTableCellContent.version = "v10";
 
-export { KsTableCellContent };
+export { KsTableCellContent, PREDEFINED_CLASSES, PREDEFINED_BUTTON_CLASSES, PREDEFINED_TEXT_CLASSES };
+export default KsTableCellContent;

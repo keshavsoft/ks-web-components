@@ -137,6 +137,15 @@ var s = [
 	}
 	o(e, n, i);
 }, y = class extends HTMLElement {
+	static get PREDEFINED_CLASSES() {
+		return n;
+	}
+	static get PREDEFINED_BUTTON_CLASSES() {
+		return r;
+	}
+	static get PREDEFINED_TEXT_CLASSES() {
+		return a;
+	}
 	constructor() {
 		super(), this._inputs = {};
 	}
@@ -152,6 +161,6 @@ var s = [
 		if (e) return e.type === "checkbox" ? e.checked : e.value;
 	}
 };
-customElements.get("ks-table-cell-content-common") || customElements.define("ks-table-cell-content-common", y), window.ks = window.ks || {}, window.ks.webComponents = window.ks.webComponents || {}, Object.assign(y, window.ks.webComponents.KsTableCellContent || {}), window.ks.webComponents.KsTableCellContent = y;
+customElements.get("ks-table-cell-content-common") || customElements.define("ks-table-cell-content-common", y), window.ks = window.ks || {}, window.ks.webComponents = window.ks.webComponents || {}, Object.assign(y, window.ks.webComponents.KsTableCellContent || {}), window.ks.webComponents.KsTableCellContent = y, window.ks.webComponents.KsTableCellContent.version = "v10";
 //#endregion
 export { y as KsTableCellContent };
