@@ -3,7 +3,7 @@ const PREDEFINED_CLASSES = {
     minimal: "w-full box-border border-b-2 border-gray-300 rounded-none px-2 py-1.5 text-sm outline-none transition-all duration-200 text-gray-700 bg-transparent focus:border-blue-500",
     pill: "w-full box-border border border-gray-300 rounded-full px-4 py-1.5 text-sm outline-none transition-all duration-200 text-gray-700 bg-white shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500",
     danger: "w-full box-border border border-red-500 rounded-md px-3 py-1.5 text-sm outline-none transition-all duration-200 text-red-700 bg-red-50 shadow-sm focus:ring-2 focus:ring-red-500 focus:border-red-500",
-    
+
     // Table Input Styles (from tableClasses.js)
     tableTopHeaderStandard: "px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm w-64 transition-all",
     tableTopHeaderCompact: "px-3 py-1.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-xs w-56 transition-all",
@@ -20,7 +20,7 @@ const PREDEFINED_CLASSES = {
 
 const PREDEFINED_BUTTON_CLASSES = {
     default: "bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded-md transition duration-150 shadow-sm cursor-pointer",
-    
+
     // Vertical Form Button Styles (from verticalClasses.js)
     verticalStandard: "bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded-md transition duration-150 shadow-sm cursor-pointer",
     verticalHorizontalLabel: "bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-2 rounded-lg transition duration-150 cursor-pointer whitespace-nowrap",
@@ -51,9 +51,13 @@ const PREDEFINED_TEXT_CLASSES = {
     tableCellStandard: "px-4 py-3 whitespace-nowrap text-sm text-gray-700",
     tableCellCompact: "px-3 py-2 whitespace-nowrap text-xs text-gray-700",
     tableCellExtraCompact: "px-2 py-1.5 whitespace-nowrap text-[11px] text-gray-700",
+    tableCellLarge: "px-4 py-3 whitespace-nowrap text-xl text-gray-700",
+    tableCellExtraLarge: "px-4 py-3 whitespace-nowrap text-3xl text-gray-700",
     tableCellCompactMinimal: "px-4 py-3 whitespace-nowrap text-sm text-gray-700",
     tableCellStandardMinimal: "px-4 py-3.5 whitespace-nowrap text-base text-gray-700",
-    tableCellSpaciousMinimal: "px-5 py-4 whitespace-nowrap text-lg text-gray-700"
+    tableCellSpaciousMinimal: "px-5 py-4 whitespace-nowrap text-lg text-gray-700",
+
+    // Large Text Styles
 };
 
 export { applyDefaultStyles, PREDEFINED_CLASSES, PREDEFINED_BUTTON_CLASSES, PREDEFINED_TEXT_CLASSES };
