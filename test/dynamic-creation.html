@@ -40,6 +40,17 @@
                 label: "Dynamically created Array View",
                 cellValue: ["Item 1", "Item 2", "Item 3"],
                 options: {} // No showInput, is an array, triggers renderArrayView
+            },
+            {
+                label: "Dynamically created Vertical Form with Button",
+                cellValue: "Pre-filled text",
+                options: { 
+                    controlType: "text", 
+                    showInput: true, 
+                    showButton: true,
+                    buttonText: "Update",
+                    theme: "verticalStandard"
+                }
             }
         ];
 

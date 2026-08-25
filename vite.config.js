@@ -6,8 +6,8 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const archiveDir = path.join(__dirname, 'archive');
-const archiveDirs = fs.existsSync(archiveDir) ? fs.readdirSync(archiveDir) : [];
+const webComponentsDir = path.join(__dirname, 'webComponents');
+const webComponentDirs = fs.existsSync(webComponentsDir) ? fs.readdirSync(webComponentsDir) : [];
 const distDir = path.join(__dirname, 'dist');
 const distDirs = fs.existsSync(distDir) ? fs.readdirSync(distDir) : [];
 
@@ -17,23 +17,23 @@ const getVNumber = (name) => {
   return match ? parseInt(match[1], 10) : 0;
 };
 
-for (const dir of archiveDirs) {
+for (const dir of webComponentDirs) {
   const v = getVNumber(dir);
   if (v > maxV) maxV = v;
 }
 
-// Calculate the next version by adding 1 to the highest version found in archive
-const nextV = maxV + 1;
+// Target the highest version found in webComponents
+const targetV = maxV;
 
-const targetDist = path.join(distDir, `v${nextV}`);
+const targetDist = path.join(distDir, `v${targetV}`);
 if (fs.existsSync(targetDist)) {
-  console.error(`\n❌ Error: dist/v${nextV} already exists! Please delete it manually if you want to rebuild this version.\n`);
+  console.error(`\n❌ Error: dist/v${targetV} already exists! Please delete it manually if you want to rebuild this version.\n`);
   process.exit(1);
 }
 
 export default defineConfig({
   build: {
-    outDir: `dist/v${nextV}`,
+    outDir: `dist/v${targetV}`,
     lib: {
       entry: 'index.js',
       name: 'ksWebComponents',

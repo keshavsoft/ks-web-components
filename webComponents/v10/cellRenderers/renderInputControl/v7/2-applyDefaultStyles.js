@@ -18,6 +18,17 @@ const PREDEFINED_CLASSES = {
     verticalLargeText: "border-2 border-gray-400 rounded-xl px-5 py-4 w-full text-2xl focus:outline-none focus:border-black font-medium"
 };
 
+const PREDEFINED_BUTTON_CLASSES = {
+    default: "bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded-md transition duration-150 shadow-sm cursor-pointer",
+    
+    // Vertical Form Button Styles (from verticalClasses.js)
+    verticalStandard: "bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded-md transition duration-150 shadow-sm cursor-pointer",
+    verticalHorizontalLabel: "bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-2 rounded-lg transition duration-150 cursor-pointer whitespace-nowrap",
+    verticalHorizontalLabelAligned: "bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-3 py-1 rounded transition duration-150 cursor-pointer whitespace-nowrap w-full",
+    verticalNoLabel: "bg-indigo-600 hover:bg-indigo-700 text-white font-medium px-4 py-2 rounded shadow cursor-pointer whitespace-nowrap",
+    verticalLargeText: "bg-black hover:bg-gray-800 text-white font-bold px-6 py-4 rounded-xl text-xl transition cursor-pointer whitespace-nowrap"
+};
+
 const showLogs = false; // Set to true to enable logging
 
 const applyDefaultStyles = (inInput, inOptions) => {
@@ -34,4 +45,4 @@ const applyDefaultStyles = (inInput, inOptions) => {
     };
 };
 
-export { applyDefaultStyles, PREDEFINED_CLASSES };
+export { applyDefaultStyles, PREDEFINED_CLASSES, PREDEFINED_BUTTON_CLASSES };
