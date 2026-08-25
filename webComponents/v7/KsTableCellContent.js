@@ -63,8 +63,16 @@ class KsTableCellContent extends HTMLElement {
     }
 };
 
-if (!customElements.get("ks-table-cell-content-common-v5")) {
-    customElements.define("ks-table-cell-content-common-v5", KsTableCellContent);
+if (!customElements.get("ks-table-cell-content-common")) {
+    customElements.define("ks-table-cell-content-common", KsTableCellContent);
 };
+
+window.ks = window.ks || {};
+window.ks.webComponents = window.ks.webComponents || {};
+
+// Merge any properties previously attached onto KsTableCellContent
+Object.assign(KsTableCellContent, window.ks.webComponents.KsTableCellContent || {});
+
+window.ks.webComponents.KsTableCellContent = KsTableCellContent;
 
 export { KsTableCellContent };
