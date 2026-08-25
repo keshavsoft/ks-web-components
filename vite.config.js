@@ -1,6 +1,10 @@
 import { defineConfig } from 'vite';
 import fs from 'fs';
 import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const archiveDir = path.join(__dirname, 'archive');
 const archiveDirs = fs.existsSync(archiveDir) ? fs.readdirSync(archiveDir) : [];
@@ -31,9 +35,9 @@ export default defineConfig({
   build: {
     outDir: `dist/v${nextV}`,
     lib: {
-      entry: 'renderStart.js',
-      name: 'renderStart',
-      fileName: 'renderStart'
+      entry: 'index.js',
+      name: 'ksWebComponents',
+      fileName: 'ks-web-components'
     }
   }
 });

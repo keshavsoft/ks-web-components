@@ -2,14 +2,13 @@
   "name": "ks-web-components",
   "version": "1.0.1",
   "description": "",
-  "main": "renderStart.js",
+  "main": "index.js",
   "bin": {
     "ks-web-components": "bin/cli.js"
   },
   "files": [
     "bin",
-    "renderStart",
-    "renderStart.js",
+    "index.js",
     "webComponents"
   ],
   "directories": {
