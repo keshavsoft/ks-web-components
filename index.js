@@ -1,1 +1,1 @@
-export { KsTableCellContent } from './webComponents/v9/KsTableCellContent.js';
+export { KsTableCellContent } from './webComponents/v10/KsTableCellContent.js';
