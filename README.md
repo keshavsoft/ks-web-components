@@ -1,66 +1,41 @@
-# KeshavSoft TableBuilder
+# KS Web Components
 
-[![GitHub Pages](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://keshavsoft.github.io/jsTableBuilderViews/)
+[![GitHub Pages](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://keshavsoft.github.io/ks-web-components/)
 
-TableBuilder is a lightweight, declarative Javascript UI library for generating complex data tables, vertical forms, and dynamic data filtering using a JSON-driven configuration approach.
+**KS Web Components** is a robust, JSON-driven Web Component library designed to dynamically render input cells, forms, and table components effortlessly. By exposing a single component (`ks-table-cell-content-common`), you can build complex, style-rich UIs just by passing it structured JSON configuration (`options`).
 
 ## Features
-- **Declarative Configuration**: Define your UI using a simple JSON structure.
-- **Multiple Renderers**: Render data as interactive data grids (`table`) or input forms (`vertical`).
-- **Dynamic Filtering**: Built-in state management for dynamically filtering tables without destroying the DOM of other components.
-- **Web Components Integration**: Easily embed custom form inputs inside table cells using Web Components (`ks-table-cell-content-common-v5`).
-- **Responsive Styling**: Tailwind CSS support built-in.
-- **Self-Documenting**: You can call `TableBuilder.sampleConfig()` to get a complete, valid sample configuration object.
+- **JSON-Driven UI**: Define text, buttons, and complex inputs (with native HTML behaviors) using a standard JSON options object.
+- **Predefined Design System**: Comes bundled with unified JSON themes (`PREDEFINED_TEXT_CLASSES.json`, `PREDEFINED_BUTTON_CLASSES.json`) ensuring consistent Tailwind CSS styling across your entire app.
+- **Native HTML Behaviors**: Full support for native inputs including `tabIndex`, `autofocus`, `spellcheck`, `minLength`, tooltips, and more, all configurable via simple properties.
+- **Transportable Code**: Use the code directly from our CDN, or effortlessly extract the latest source files into your own project via NPX.
 
 ## Quick Start
 
-### 1. Basic Setup
-You can easily scaffold a project by running the npm CLI tool:
+### Option 1: Use via CDN (Recommended for quick testing)
+
+Because this repository is served from the root on GitHub Pages, the `dist` folder natively acts as a fast, free CDN. You can drop this tag directly into your HTML:
+
+```html
+<script src="https://keshavsoft.github.io/ks-web-components/dist/v12/ks-web-components.js" type="module"></script>
+```
+
+Then simply use the web component anywhere in your DOM:
+```html
+<ks-table-cell-content-common></ks-table-cell-content-common>
+```
+
+### Option 2: Scaffold Locally (Extract source code)
+
+If you want to modify the source code or integrate the raw components directly into your build pipeline, you can "transport" the source code into your project instantly:
 
 ```bash
-npx table-builder-views init
+npx ks-web-components init
 ```
 
-Or you can include `renderStart.js` (which exports the `TableBuilder` class) in your HTML file directly.
+This CLI command will extract the latest `webComponents/` source directory and the `index.js` registration file straight into your current working directory, allowing you complete control over the files.
 
-```javascript
-import { TableBuilder } from "./renderStart.js";
+## Documentation Showcase
 
-const config = {
-    htmlId: "app-root",
-    data: [
-        { id: 1, name: "Item A", category: "Electronics" },
-        { id: 2, name: "Item B", category: "Books" }
-    ],
-    columns: [
-        {
-            dataKey: "name",
-            header: "Item Name"
-        },
-        {
-            dataKey: "category",
-            header: "Category"
-        }
-    ],
-    views: [
-        {
-            rendererType: "table" // Renders a standard table
-        }
-    ]
-};
-
-const builder = new TableBuilder(config);
-await builder.build();
-```
-
-## Documentation
-Dive deeper into the architecture, setup, and advanced configurations:
-
-- [Developer Architecture Guide (`DEV.md`)](./DEV.md)
-- [How-To Tutorials (`HOWTO.md`)](./HOWTO.md)
-
-### Detailed HTML Docs
-For exhaustive schema definitions and visual examples, view our live HTML documentation on GitHub Pages:
-- [Main Docs Landing Page](https://keshavsoft.github.io/jsTableBuilderViews/)
-- [Configuration Schema](https://keshavsoft.github.io/jsTableBuilderViews/configuration.html)
-- [Renderers Guide](https://keshavsoft.github.io/jsTableBuilderViews/renderers.html)
+Explore our interactive HTML documentation to visually test the design system and behaviors:
+- [Interactive Showcase Hub](https://keshavsoft.github.io/ks-web-components/docs/index.html)

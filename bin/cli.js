@@ -9,28 +9,28 @@ const __dirname = path.dirname(__filename);
 
 // The directories and files to copy (relative to the package root, one level up from bin/)
 const packageRoot = path.join(__dirname, '..');
-const dirsToCopy = ['renderStart', 'webComponents'];
-const filesToCopy = ['renderStart.js'];
+const dirsToCopy = ['webComponents'];
+const filesToCopy = ['index.js'];
 
 function showHelp() {
     console.log(`
-🚀 TableBuilderViews CLI
+🚀 KS Web Components CLI
 ========================
 
-TableBuilder is a lightweight, declarative Javascript UI library for generating complex data tables, vertical forms, and dynamic data filtering using a JSON-driven configuration approach.
+KS Web Components is a robust, JSON-driven Web Component library for generating complex data tables, vertical forms, and interactive input cells.
 
 Usage:
-  npx table-builder-views <command>
+  npx ks-web-components <command>
 
 Commands:
-  init        Scaffolds the TableBuilder source components and a starter index.html in the current directory.
+  init        Extracts the KS Web Components source folder and index.js to the current directory.
   help        Shows this help message.
 
 Options:
   --help, -h  Shows this help message.
 
 Example:
-  npx table-builder-views init
+  npx ks-web-components init
 `);
 }
 
@@ -55,7 +55,7 @@ function copyDirectory(src, dest) {
 }
 
 function initScaffold() {
-    console.log('📦 Installing tableBuilderViews source components...');
+    console.log('📦 Extracting KS Web Components source files...');
 
     try {
         for (const dir of dirsToCopy) {
@@ -89,15 +89,15 @@ function initScaffold() {
             if (fs.existsSync(templatePath)) {
                 const indexHtmlContent = fs.readFileSync(templatePath, 'utf8');
                 fs.writeFileSync(indexHtmlPath, indexHtmlContent);
-                console.log(\`✅ Scaffolding complete: Created ./index.html starter file\`);
+                console.log(`✅ Scaffolding complete: Created ./index.html starter file`);
             } else {
-                console.warn(\`⚠️ Could not find template.html at \${templatePath}. Skipping index.html creation.\`);
+                console.warn(`⚠️ Could not find template.html at ${templatePath}. Skipping index.html creation.`);
             }
         }
 
-        console.log(\`\\nYou can now import and customize the TableBuilder directly from your own project!\`);
+        console.log(`\nYou can now import and customize the KS Web Components directly from your own project!`);
     } catch (error) {
-        console.error(\`❌ Failed to copy files: \${error.message}\`);
+        console.error(`❌ Failed to copy files: ${error.message}`);
         process.exit(1);
     }
 }
