@@ -1,41 +1,55 @@
-# KS Web Components
+# KeshavSoft ks-web-components
 
-[![GitHub Pages](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://keshavsoft.github.io/ks-web-components/)
+[![Docs Site](https://img.shields.io/badge/Docs-GitHub%20Pages-blue)](https://keshavsoft.github.io/ks-web-components/)
+[![NPM Package](https://img.shields.io/badge/NPM-ks--web--components-red.svg)](https://www.npmjs.com/package/ks-web-components)
+[![GitHub Repository](https://img.shields.io/badge/GitHub-Repository-black.svg)](https://github.com/keshavsoft/ks-web-components)
 
-**KS Web Components** is a robust, JSON-driven Web Component library designed to dynamically render input cells, forms, and table components effortlessly. By exposing a single component (`ks-table-cell-content-common`), you can build complex, style-rich UIs just by passing it structured JSON configuration (`options`).
+> **Quick Navigation**: 📖 [Live Documentation Portal](https://keshavsoft.github.io/ks-web-components/) | 📦 [NPM Package Page](https://www.npmjs.com/package/ks-web-components) | 🐙 [GitHub Repository](https://github.com/keshavsoft/ks-web-components) | 📄 [HTML Version (`docs/readme.html`)](https://keshavsoft.github.io/ks-web-components/readme.html)
 
-## Features
-- **JSON-Driven UI**: Define text, buttons, and complex inputs (with native HTML behaviors) using a standard JSON options object.
-- **Predefined Design System**: Comes bundled with unified JSON themes (`PREDEFINED_TEXT_CLASSES.json`, `PREDEFINED_BUTTON_CLASSES.json`) ensuring consistent Tailwind CSS styling across your entire app.
-- **Native HTML Behaviors**: Full support for native inputs including `tabIndex`, `autofocus`, `spellcheck`, `minLength`, tooltips, and more, all configurable via simple properties.
-- **Transportable Code**: Use the code directly from our CDN, or effortlessly extract the latest source files into your own project via NPX.
+`ks-web-components` is a high-performance UI Custom HTML Web Component and Tailwind CSS design token library designed for rendering cell-level controls (`<ks-table-cell-content-common>`), dynamic dropdowns, date pickers, and formatted text fields.
 
-## Quick Start
+---
 
-### Option 1: Use via CDN (Recommended for quick testing)
+## 🌟 Key Features
 
-Because this repository is served from the root on GitHub Pages, the `dist` folder natively acts as a fast, free CDN. You can drop this tag directly into your HTML:
+* **Custom HTML Web Components**: Zero-dependency `<ks-table-cell-content-common>` custom elements.
+* **Predefined Tailwind Design Tokens**: Exported token maps (`PREDEFINED_TEXT_CLASSES`, `PREDEFINED_BUTTON_CLASSES`).
+* **CDN ES Module Loaded**: Works out of the box via GitHub Pages CDN bundle (`/dist/v12/ks-web-components.js`).
+* **Ecosystem Integration**: Built as the core cell-rendering dependency for [`jsTableBuilderViews`](https://github.com/keshavsoft/jsTableBuilderViews).
+
+---
+
+## 💻 Quick Start (CDN Usage)
+
+Import the bundle directly in your HTML `<head>`:
 
 ```html
+<!-- Load Web Components & Design Token Bundle -->
 <script src="https://keshavsoft.github.io/ks-web-components/dist/v12/ks-web-components.js" type="module"></script>
+
+<!-- Render Custom Cell Content Tag -->
+<ks-table-cell-content-common
+    control-type="select"
+    class-name="w-48 border border-gray-300 rounded px-2 py-1">
+</ks-table-cell-content-common>
 ```
 
-Then simply use the web component anywhere in your DOM:
-```html
-<ks-table-cell-content-common></ks-table-cell-content-common>
-```
+---
 
-### Option 2: Scaffold Locally (Extract source code)
+## 🚀 CLI Scaffolding (`npx ks-web-components init`)
 
-If you want to modify the source code or integrate the raw components directly into your build pipeline, you can "transport" the source code into your project instantly:
+Scaffold Web Component source modules locally into your workspace:
 
 ```bash
 npx ks-web-components init
 ```
 
-This CLI command will extract the latest `webComponents/` source directory and the `index.js` registration file straight into your current working directory, allowing you complete control over the files.
+---
 
-## Documentation Showcase
+## 🌐 Documentation Matrix
 
-Explore our interactive HTML documentation to visually test the design system and behaviors:
-- [Interactive Showcase Hub](https://keshavsoft.github.io/ks-web-components/docs/index.html)
+* 🛠️ **Developer & Build Guide**: [DEV.md](./DEV.md) | [docs/dev.html](https://keshavsoft.github.io/ks-web-components/dev.html)
+* 💡 **How-To Tutorials**: [HOWTO.md](./HOWTO.md) | [docs/howto.html](https://keshavsoft.github.io/ks-web-components/howto.html)
+* 🏗️ **System Architecture**: [ARCHITECTURE.md](./ARCHITECTURE.md) | [docs/architecture.html](https://keshavsoft.github.io/ks-web-components/architecture.html)
+* 📖 **Docs Hub**: [docs/index.html](https://keshavsoft.github.io/ks-web-components/)
+* 📦 **NPM Package**: [ks-web-components](https://www.npmjs.com/package/ks-web-components)

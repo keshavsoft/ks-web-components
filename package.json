@@ -23,14 +23,19 @@
     "type": "git",
     "url": "git+https://github.com/keshavsoft/ks-web-components.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "web-components",
+    "table-cell-content",
+    "tailwind-tokens",
+    "custom-elements"
+  ],
+  "author": "KeshavSoft",
   "license": "ISC",
   "type": "module",
   "bugs": {
     "url": "https://github.com/keshavsoft/ks-web-components/issues"
   },
-  "homepage": "https://github.com/keshavsoft/ks-web-components#readme",
+  "homepage": "https://keshavsoft.github.io/ks-web-components/",
   "devDependencies": {
     "vite": "^8.2.1"
   }
