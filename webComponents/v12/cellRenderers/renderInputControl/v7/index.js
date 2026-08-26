@@ -2,7 +2,6 @@ import { createInputElement } from "./1-createInputElement.js";
 import { applyDefaultStyles } from "./2-applyDefaultStyles.js";
 import { addInteractionBehaviors } from "./3-addInteractionBehaviors.js";
 
-
 const startFunc = (shadowRoot, inOptions = null) => {
     // Keep options local for now as defaults, but allow overriding from outside later
     const options = inOptions || {
