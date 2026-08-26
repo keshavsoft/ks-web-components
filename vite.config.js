@@ -1,39 +1,32 @@
 import { defineConfig } from 'vite';
-import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { getHighestComponentVersion } from './viteBuild/getHighestComponentVersion.js';
+import { ensureCleanBuildDirectory } from './viteBuild/ensureCleanBuildDirectory.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const webComponentsDir = path.join(__dirname, 'webComponents');
-const webComponentDirs = fs.existsSync(webComponentsDir) ? fs.readdirSync(webComponentsDir) : [];
-const distDir = path.join(__dirname, 'dist');
-const distDirs = fs.existsSync(distDir) ? fs.readdirSync(distDir) : [];
-
-let maxV = 0;
-const getVNumber = (name) => {
-  const match = name.match(/^v(\d+)$/);
-  return match ? parseInt(match[1], 10) : 0;
+// --- 1. Configuration ---
+const CONFIG = {
+  webComponentsPath: path.join(__dirname, 'webComponents'),
+  outputBaseDir: path.join(__dirname, 'ks', 'dist'),
+  publicDir: false // Disable the public directory copying feature to avoid Vite warnings
 };
 
-for (const dir of webComponentDirs) {
-  const v = getVNumber(dir);
-  if (v > maxV) maxV = v;
-}
+// --- 2. Orchestration ---
+const targetVersion = getHighestComponentVersion(CONFIG.webComponentsPath);
+const targetAbsolutePath = path.join(CONFIG.outputBaseDir, `v${targetVersion}`);
+const targetRelativePath = `ks/dist/v${targetVersion}`;
 
-// Target the highest version found in webComponents
-const targetV = maxV;
+ensureCleanBuildDirectory(targetAbsolutePath);
 
-const targetDist = path.join(distDir, `v${targetV}`);
-if (fs.existsSync(targetDist)) {
-  console.error(`\n❌ Error: dist/v${targetV} already exists! Please delete it manually if you want to rebuild this version.\n`);
-  process.exit(1);
-}
-
+// --- 3. Vite Export ---
 export default defineConfig({
+  publicDir: CONFIG.publicDir,
   build: {
-    outDir: `dist/v${targetV}`,
+    outDir: targetRelativePath,
+    emptyOutDir: true,
     lib: {
       entry: 'index.js',
       name: 'ksWebComponents',
