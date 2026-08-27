@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Events & Interactions Showcase</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 p-8 font-sans">
+    <div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+        <h1 class="text-3xl font-extrabold text-gray-900 mb-2">Button Events Showcase</h1>
+        <p class="text-gray-500 mb-8 text-lg">Interactive demos of the event handling capabilities in the button component.</p>
+
+        <div class="space-y-8">
+            
+            <!-- Demo 1: Basic Click -->
+            <div class="p-6 border border-gray-200 rounded-lg shadow-sm">
+                <h3 class="text-lg font-bold text-gray-800 mb-2">1. Basic Click Event</h3>
+                <p class="text-sm text-gray-600 mb-4">Fires a simple onClick handler.</p>
+                <div id="demo-basic-click" class="flex gap-4 items-center"></div>
+                <div id="log-basic-click" class="mt-4 text-sm font-mono text-blue-600 bg-blue-50 p-2 rounded hidden"></div>
+            </div>
+
+            <!-- Demo 2: Hover Events -->
+            <div class="p-6 border border-gray-200 rounded-lg shadow-sm">
+                <h3 class="text-lg font-bold text-gray-800 mb-2">2. MouseEnter & MouseLeave</h3>
+                <p class="text-sm text-gray-600 mb-4">Tracking hover states.</p>
+                <div id="demo-hover" class="flex gap-4 items-center"></div>
+                <div id="log-hover" class="mt-4 text-sm font-mono text-green-600 bg-green-50 p-2 rounded">Status: Waiting for hover...</div>
+            </div>
+
+            <!-- Demo 3: Focus & Blur -->
+            <div class="p-6 border border-gray-200 rounded-lg shadow-sm">
+                <h3 class="text-lg font-bold text-gray-800 mb-2">3. Focus & Blur</h3>
+                <p class="text-sm text-gray-600 mb-4">Use Tab key to focus.</p>
+                <div id="demo-focus" class="flex gap-4 items-center"></div>
+                <div id="log-focus" class="mt-4 text-sm font-mono text-purple-600 bg-purple-50 p-2 rounded">Status: Not focused</div>
+            </div>
+
+            <!-- Demo 4: Error Handling -->
+            <div class="p-6 border border-gray-200 rounded-lg shadow-sm">
+                <h3 class="text-lg font-bold text-gray-800 mb-2">4. Error Handling (Safe Wrapper)</h3>
+                <p class="text-sm text-gray-600 mb-4">This button's click handler throws an error, but it won't crash the page. Check the DevTools console!</p>
+                <div id="demo-error" class="flex gap-4 items-center"></div>
+                <div id="log-error" class="mt-4 text-sm font-mono text-red-600 bg-red-50 p-2 rounded hidden"></div>
+            </div>
+
+            <!-- Demo 5: Control Flow (preventDefault & stopPropagation) -->
+            <div class="p-6 border border-gray-200 rounded-lg shadow-sm">
+                <h3 class="text-lg font-bold text-gray-800 mb-2">5. Control Flow (stopPropagation)</h3>
+                <p class="text-sm text-gray-600 mb-4">Clicking the nested button won't trigger the parent container's click event.</p>
+                <div id="demo-parent" class="p-4 bg-orange-100 border-2 border-orange-300 rounded cursor-pointer hover:bg-orange-200 transition">
+                    <p class="font-bold text-orange-800 mb-3">Parent Container (Click me!)</p>
+                    <div id="demo-control" class="flex gap-4 items-center"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script type="module">
+        import '../../index.js'; // Registers ks-table-cell-content-common
+
+        // Helper to create and mount the component
+        const mountDemo = (containerId, options) => {
+            const container = document.getElementById(containerId);
+            const comp = document.createElement('ks-table-cell-content-common');
+            comp.inputs = { options: { showButton: true, ...options } };
+            container.appendChild(comp);
+            return comp;
+        };
+
+        // 1. Basic Click
+        mountDemo('demo-basic-click', {
+            buttonText: 'Click Me',
+            theme: 'primary',
+            onClick: (e, btn) => {
+                const log = document.getElementById('log-basic-click');
+                log.textContent = `Button clicked at ${new Date().toLocaleTimeString()}!`;
+                log.classList.remove('hidden');
+                
+                // Demo manipulating the button itself
+                const originalText = btn.textContent;
+                btn.textContent = "Clicked!";
+                setTimeout(() => btn.textContent = originalText, 1000);
+            }
+        });
+
+        // 2. Hover
+        mountDemo('demo-hover', {
+            buttonText: 'Hover Over Me',
+            theme: 'outline',
+            onMouseEnter: () => {
+                document.getElementById('log-hover').textContent = 'Status: Hovering! 👆';
+            },
+            onMouseLeave: () => {
+                document.getElementById('log-hover').textContent = 'Status: Mouse left 👋';
+            }
+        });
+
+        // 3. Focus
+        mountDemo('demo-focus', {
+            buttonText: 'Focus Me (Tab)',
+            theme: 'default',
+            onFocus: () => {
+                document.getElementById('log-focus').textContent = 'Status: Focused! 🎯';
+            },
+            onBlur: () => {
+                document.getElementById('log-focus').textContent = 'Status: Lost focus 💨';
+            }
+        });
+
+        // 4. Error Handling
+        mountDemo('demo-error', {
+            buttonText: 'Throw Error',
+            theme: 'danger',
+            onClick: () => {
+                const log = document.getElementById('log-error');
+                log.textContent = 'Error thrown! Check browser console to see the safe catch in action.';
+                log.classList.remove('hidden');
+                
+                // This error will be caught by the safe wrapper
+                throw new Error("This is a simulated error from the onClick handler!");
+            }
+        });
+
+        // 5. Control Flow
+        const parent = document.getElementById('demo-parent');
+        parent.addEventListener('click', () => {
+            alert('Parent container clicked!');
+        });
+
+        mountDemo('demo-control', {
+            buttonText: 'Stop Propagation',
+            theme: 'success',
+            stopPropagation: true, // This stops the event from bubbling to the parent
+            onClick: () => {
+                alert('Button clicked! Notice how the parent container does NOT fire its click event.');
+            }
+        });
+
+    </script>
+</body>
+</html>

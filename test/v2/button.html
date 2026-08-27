@@ -102,18 +102,27 @@
                     // Add background color for contrast if button contains white text, just in case.
                     previewWrapper.className = "p-6 bg-white border border-gray-200 rounded-lg overflow-x-auto flex flex-col items-center justify-center min-h-[100px] shadow-inner";
                     
-                    const previewBtn = document.createElement('button');
-                    previewBtn.className = className;
-                    
                     // Contextual sample text
                     let sampleText = "Click Me";
                     if (key.includes('danger')) sampleText = "Delete";
                     if (key.includes('success')) sampleText = "Save Changes";
                     if (key.includes('primary')) sampleText = "Submit";
                     
-                    previewBtn.textContent = sampleText;
+                    // Utilize the actual web component instead of raw HTML
+                    const previewComponent = document.createElement('ks-table-cell-content-common');
+                    previewComponent.inputs = {
+                        options: {
+                            showButton: true,
+                            buttonText: sampleText,
+                            buttonClassName: className, // Applying the class directly to test it
+                            buttonTitle: `Click me to test the ${key} button!`,
+                            onClick: () => {
+                                alert(`Success! You clicked the ${key} button component.`);
+                            }
+                        }
+                    };
 
-                    previewWrapper.appendChild(previewBtn);
+                    previewWrapper.appendChild(previewComponent);
 
                     wrapper.appendChild(header);
                     wrapper.appendChild(previewWrapper);
