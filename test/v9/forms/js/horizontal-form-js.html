@@ -32,12 +32,28 @@
 
         // Instantiate the new parent composite
         const form = document.createElement("ks-horizontal-form");
-        
-        // Pass the array to the component via _options
-        form._options = formSchema;
 
-        // Optionally set a theme for the form container itself (e.g. gap spacing)
-        form.setAttribute("ks-theme", "default");
+        // Pass a single configuration object mimicking the JSON structure
+        form.config = {
+            head: {
+                showLabel: "User Registration",
+                theme: ""
+            },
+            body: {
+                columns: formSchema,
+                theme: ""
+            },
+            foot: {
+                buttons: [
+                    { text: "Cancel", theme: "cancel", type: "button" },
+                    { text: "Save Changes", theme: "save", type: "submit" }
+                ],
+                theme: ""
+            }
+        };
+
+        // Set the card theme
+        form.setAttribute("ks-theme", "card");
 
         // Append the single form element to the DOM
         fourRowsContainer.appendChild(form);

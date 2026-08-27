@@ -1,0 +1,13 @@
+import properties from "./properties.json" with { type: "json" };
+
+export function applyProperties(controlElement, config) {
+    properties.forEach(prop => {
+        if (config[prop] !== undefined && prop !== "theme" && prop !== "className") {
+            if (prop === "disabled" || prop === "checked" || prop === "autofocus") {
+                controlElement[prop] = config[prop] !== "false";
+            } else {
+                controlElement[prop] = config[prop];
+            }
+        }
+    });
+}

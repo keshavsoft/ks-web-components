@@ -1,0 +1,47 @@
+{
+    "default": {
+        "container": "flex flex-row items-center gap-4 p-4 bg-white rounded shadow-sm border border-gray-200",
+        "labelWrapper": "",
+        "inputWrapper": "flex-grow"
+    },
+    "borderless": {
+        "container": "flex flex-row items-center gap-4 py-2",
+        "labelWrapper": "",
+        "inputWrapper": "flex-grow"
+    },
+    "compact": {
+        "container": "flex flex-row items-center gap-2 p-2 bg-gray-50 rounded border border-gray-300 text-sm",
+        "labelWrapper": "",
+        "inputWrapper": "flex-grow"
+    },
+    "borderless-center-anchor": {
+        "container": "grid grid-cols-2 gap-4 py-2 items-center",
+        "labelWrapper": "justify-self-end text-right",
+        "inputWrapper": "justify-self-start w-full"
+    },
+    "split-50-50": {
+        "container": "grid grid-cols-[5fr_5fr] gap-4 py-2 items-center",
+        "labelWrapper": "justify-self-end text-right",
+        "inputWrapper": "justify-self-start w-full"
+    },
+    "split-40-60": {
+        "container": "grid grid-cols-[4fr_6fr] gap-4 py-2 items-center",
+        "labelWrapper": "justify-self-end text-right",
+        "inputWrapper": "justify-self-start w-full"
+    },
+    "split-60-40": {
+        "container": "grid grid-cols-[6fr_4fr] gap-4 py-2 items-center",
+        "labelWrapper": "justify-self-end text-right",
+        "inputWrapper": "justify-self-start w-full"
+    },
+    "split-30-70": {
+        "container": "grid grid-cols-[3fr_7fr] gap-4 py-2 items-center",
+        "labelWrapper": "justify-self-end text-right",
+        "inputWrapper": "justify-self-start w-full"
+    },
+    "split-70-30": {
+        "container": "grid grid-cols-[7fr_3fr] gap-4 py-2 items-center",
+        "labelWrapper": "justify-self-end text-right",
+        "inputWrapper": "justify-self-start w-full"
+    }
+}

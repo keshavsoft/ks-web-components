@@ -1,0 +1,23 @@
+{
+    "default": {
+        "container": "flex flex-col gap-2 p-4 bg-white rounded shadow-sm border border-gray-200",
+        "labelWrapper": "",
+        "inputWrapper": "w-full",
+        "checkboxWrapper": "",
+        "buttonWrapper": "mt-2 flex justify-end"
+    },
+    "borderless": {
+        "container": "flex flex-col gap-2 py-2",
+        "labelWrapper": "",
+        "inputWrapper": "w-full",
+        "checkboxWrapper": "",
+        "buttonWrapper": "mt-2 flex justify-end"
+    },
+    "compact": {
+        "container": "flex flex-col gap-1 p-2 bg-gray-50 rounded border border-gray-300 text-sm",
+        "labelWrapper": "",
+        "inputWrapper": "w-full",
+        "checkboxWrapper": "",
+        "buttonWrapper": "mt-2 flex justify-end"
+    }
+}
