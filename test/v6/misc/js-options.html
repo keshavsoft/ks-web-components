@@ -5,9 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Base Controls Test - JS Options</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
+<body class="p-8 bg-gray-50 flex flex-col gap-8 max-w-2xl mx-auto">
+    <a href="index.html" class="text-blue-500 hover:underline">&larr; Back to Misc Index</a>
     <h2>Label Control (Via JS Options)</h2>
     <!-- Rendered via JS below -->
     <div id="label-container"></div>
@@ -19,9 +21,8 @@
     <h2>Button Control (Via JS Object literal)</h2>
     <div id="button-container"></div>
 
+    <script type="module" src="../../../index.js"></script>
     <script type="module">
-        import "../../index.js";
-
         // Example 1: Create element fully via JS and append
         const labelEl = document.createElement("ks-web-component");
         labelEl._options = {
