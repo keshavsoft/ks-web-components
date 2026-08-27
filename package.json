@@ -1,7 +1,7 @@
 {
   "name": "ks-web-components",
-  "version": "1.13.1",
-  "description": "",
+  "version": "1.14.0",
+  "description": "Zero-dependency Custom HTML Web Components and Tailwind CSS tokens for high-performance forms and tables.",
   "main": "index.js",
   "bin": {
     "ks-web-components": "bin/cli.js"
@@ -9,7 +9,10 @@
   "files": [
     "bin",
     "index.js",
-    "webComponents"
+    "webComponents",
+    "docs",
+    "DETAILS.md",
+    "README.md"
   ],
   "directories": {
     "doc": "docs"

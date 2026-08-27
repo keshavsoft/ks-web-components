@@ -12,9 +12,10 @@
 
 ## 🌟 Key Features
 
-* **Custom HTML Web Components**: Zero-dependency `<ks-table-cell-content-common>` custom elements.
+* **Schema-Driven Form Generation**: Build complex, responsive forms (horizontal and vertical) simply by passing JSON arrays (`v21+`).
+* **Custom HTML Web Components**: Zero-dependency `<ks-table-cell-content-common>`, `<ks-horizontal-form>`, and more custom elements.
 * **Predefined Tailwind Design Tokens**: Exported token maps (`PREDEFINED_TEXT_CLASSES`, `PREDEFINED_BUTTON_CLASSES`).
-* **CDN ES Module Loaded**: Works out of the box via GitHub Pages CDN bundle (`/dist/v12/ks-web-components.js`).
+* **CDN ES Module Loaded**: Works out of the box via GitHub Pages CDN bundle (`/dist/v21/ks-web-components.js`).
 * **Ecosystem Integration**: Built as the core cell-rendering dependency for [`jsTableBuilderViews`](https://github.com/keshavsoft/jsTableBuilderViews).
 
 ---
@@ -25,24 +26,41 @@ Import the bundle directly in your HTML `<head>`:
 
 ```html
 <!-- Load Web Components & Design Token Bundle -->
-<script src="https://keshavsoft.github.io/ks-web-components/dist/v12/ks-web-components.js" type="module"></script>
+<script src="https://keshavsoft.github.io/ks-web-components/dist/v21/ks-web-components.js" type="module"></script>
 
-<!-- Render Custom Cell Content Tag -->
-<ks-table-cell-content-common
-    control-type="select"
-    class-name="w-48 border border-gray-300 rounded px-2 py-1">
-</ks-table-cell-content-common>
+<!-- Render a full schema-driven form using javascript -->
+<script type="module">
+  const form = document.createElement("ks-horizontal-form");
+  form._options = [
+      { labelText: "Name", inputType: "text", theme: "split-30-70" },
+      { labelText: "Email", inputType: "email", theme: "split-30-70" }
+  ];
+  document.body.appendChild(form);
+</script>
 ```
 
 ---
 
-## 🚀 CLI Scaffolding (`npx ks-web-components init`)
+## 🚀 CLI Scaffolding (`npx ks-web-components`)
 
-Scaffold Web Component source modules locally into your workspace:
+The library includes a powerful CLI to help you scaffold and understand the components:
 
-```bash
-npx ks-web-components init
-```
+- **Initialize workspace:**
+  ```bash
+  npx ks-web-components init
+  ```
+- **View documentation locally:**
+  ```bash
+  npx ks-web-components docs
+  ```
+- **Generate component defaults:**
+  ```bash
+  npx ks-web-components defaults
+  ```
+- **View CLI usage help:**
+  ```bash
+  npx ks-web-components usage
+  ```
 
 ---
 
@@ -51,5 +69,6 @@ npx ks-web-components init
 * 🛠️ **Developer & Build Guide**: [DEV.md](./DEV.md) | [docs/dev.html](https://keshavsoft.github.io/ks-web-components/dev.html)
 * 💡 **How-To Tutorials**: [HOWTO.md](./HOWTO.md) | [docs/howto.html](https://keshavsoft.github.io/ks-web-components/howto.html)
 * 🏗️ **System Architecture**: [ARCHITECTURE.md](./ARCHITECTURE.md) | [docs/architecture.html](https://keshavsoft.github.io/ks-web-components/architecture.html)
+* 🔬 **Schema-Driven Forms Deep Dive (v21)**: [DETAILS.md](./DETAILS.md)
 * 📖 **Docs Hub**: [docs/index.html](https://keshavsoft.github.io/ks-web-components/)
 * 📦 **NPM Package**: [ks-web-components](https://www.npmjs.com/package/ks-web-components)
