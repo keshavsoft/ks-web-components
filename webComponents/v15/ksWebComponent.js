@@ -1,6 +1,6 @@
 import { readAttributes } from "./utils/attributeReader.js";
 import { registerComponent } from "./utils/componentRegister.js";
-import { renderBaseControl } from "./controls/baseControlRenderer.js";
+import { renderBaseControl, CONTROL_PROPERTIES } from "./controls/baseControlRenderer.js";
 
 class ksWebComponent extends HTMLElement {
     constructor() {
@@ -28,5 +28,8 @@ class ksWebComponent extends HTMLElement {
 
 registerComponent(ksWebComponent, "ks-web-component", "v15", "base");
 
-export { ksWebComponent };
+// Register properties globally for easy access
+window.ks.webComponents.base.CONTROL_PROPERTIES = CONTROL_PROPERTIES;
+
+export { ksWebComponent, CONTROL_PROPERTIES };
 export default ksWebComponent;
