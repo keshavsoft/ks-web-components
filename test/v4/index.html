@@ -31,13 +31,24 @@
     </div>
 
     <div>
+        <h2 class="text-lg font-bold mb-2">Input Control (Disabled & ReadOnly)</h2>
+        <ks-web-component ks-control-type="input" ks-type="text" ks-value="Can't touch this" ks-disabled></ks-web-component>
+        <ks-web-component class="mt-2 block" ks-control-type="input" ks-type="text" ks-value="Read only!" ks-read-only></ks-web-component>
+    </div>
+
+    <div>
         <h2 class="text-lg font-bold mb-2">Button Control (Default theme)</h2>
-        <ks-web-component ks-control-type="button" ks-text="Submit"></ks-web-component>
+        <ks-web-component ks-control-type="button" ks-text="Submit" ks-tab-index="1"></ks-web-component>
+    </div>
+
+    <div>
+        <h2 class="text-lg font-bold mb-2">Button Control (Disabled)</h2>
+        <ks-web-component ks-control-type="button" ks-text="Not Allowed" ks-disabled></ks-web-component>
     </div>
 
     <div>
         <h2 class="text-lg font-bold mb-2">Button Control (Vertical Large Text theme)</h2>
-        <ks-web-component ks-control-type="button" ks-text="Huge Button" ks-theme="verticalLargeText"></ks-web-component>
+        <ks-web-component ks-control-type="button" ks-text="Huge Button" ks-theme="verticalLargeText" ks-tab-index="2"></ks-web-component>
     </div>
 
     <script type="module" src="../../index.js"></script>
