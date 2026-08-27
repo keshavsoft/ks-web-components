@@ -12,10 +12,6 @@ class KsTableCellContent extends HTMLElement {
         this._inputs = {};
     }
 
-    connectedCallback() {
-        this.render();
-    }
-
     set inputs(data) {
         this._inputs = data;
         this.render();
@@ -26,11 +22,6 @@ class KsTableCellContent extends HTMLElement {
     }
 
     render() {
-        // console.log("aaaa : ", this.getAttribute("k1"), this);
-        const k1 = this.getAttribute("k1");
-
-        console.log(k1); // "ss"
-
         let val = this._inputs.cellValue;
         const options = this._inputs.options || {};
 

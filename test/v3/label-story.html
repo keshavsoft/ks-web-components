@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>label story</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body>
+    <ks-table-cell-content-common k1="sss"></ks-table-cell-content-common>
+    <ks-web-component ks-k1="sssfffff"></ks-web-component>
+
+    <ks-table-cell-content-common
+        inputs='{"cellValue":"Hello","options":{"controlType":"label","className":"my-class"}}'>
+    </ks-table-cell-content-common>
+
+    <!-- <script src="https://keshavsoft.github.io/ks-web-components/dist/v13/ks-web-components.js" type="module"></script> -->
+
+    <script type="module">
+        import '../../index.js'; // Imports and registers ks-table-cell-content-common
+
+        const previewComponent = document.createElement('ks-table-cell-content-common');
+        previewComponent.inputs = {
+            options: {
+                showButton: true,
+                buttonText: "sampleText",
+                buttonClassName: "className", // Applying the class directly to test it
+                buttonTitle: `Click me to test the  button!`,
+                onClick: () => {
+                    alert(`Success! You clicked the button component.`);
+                }
+            }
+        };
+
+        document.body.appendChild(previewComponent);
+
+        // console.log("previewComponent : ", previewComponent);
+
+    </script>
+
+</body>
+
+</html>
