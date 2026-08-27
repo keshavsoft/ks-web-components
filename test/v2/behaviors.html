@@ -4,24 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Input Behaviors Showcase</title>
+    <title>Input Behaviors & Constraints Showcase</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="bg-gray-50 p-8 font-sans">
     <div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg border border-gray-100">
-        <h1 class="text-3xl font-extrabold text-gray-900 mb-2">HTML Behaviors Showcase</h1>
-        <p class="text-gray-500 mb-8 text-lg">Testing the standard HTML attributes added to <code>renderInputControl</code>.</p>
+        <h1 class="text-3xl font-extrabold text-gray-900 mb-2">HTML Control Behaviors Showcase</h1>
+        <p class="text-gray-500 mb-8 text-lg">Interactive story-based reference for native HTML input attributes & constraints.</p>
 
-        <form onsubmit="event.preventDefault(); alert('Form submitted natively!');" class="space-y-6" id="dynamic-container">
-            <!-- Dynamically created components will be appended here -->
-            
-            <div class="pt-6 border-t border-gray-200 flex justify-end">
-                <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded-md shadow-sm">
-                    Test Native Form Submission
-                </button>
-            </div>
+        <form onsubmit="event.preventDefault(); alert('Form submitted natively!');" class="space-y-8" id="dynamic-container">
+            <!-- Story Sections injected here -->
         </form>
+
+        <div class="mt-8 pt-6 border-t border-gray-200 flex justify-end">
+            <button type="submit" form="dynamic-container" class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-5 py-2.5 rounded-lg shadow-sm font-semibold transition">
+                Test Native Form Submission 🚀
+            </button>
+        </div>
     </div>
 
     <script type="module">
@@ -29,87 +29,67 @@
 
         const container = document.getElementById('dynamic-container');
 
-        const testCases = [
+        const stories = [
             {
-                label: "Autofocus (Should be focused on load)",
+                storyNumber: "1",
+                heading: "Autofocus & Auto-Focus Control Story",
+                paragraph: "Automatically focuses the input element immediately upon page load without user click intervention.",
                 cellValue: "",
-                options: { controlType: "text", showInput: true, autofocus: true, placeholder: "I have autofocus: true", theme: "verticalStandard" }
+                options: { controlType: "text", showInput: true, autofocus: true, placeholder: "I have autofocus: true enabled!", theme: "verticalStandard" }
             },
             {
-                label: "tabIndex: -1 (Cannot tab into this)",
-                cellValue: "Try using 'Tab' to focus me - it won't work",
+                storyNumber: "2",
+                heading: "Tab Navigation Exclude (tabIndex: -1)",
+                paragraph: "Excludes the input control from sequential keyboard tab navigation while remaining interactive to mouse clicks.",
+                cellValue: "Try pressing 'Tab' key — keyboard cursor skips over this input!",
                 options: { controlType: "text", showInput: true, tabIndex: -1, theme: "verticalStandard" }
             },
             {
-                label: "Title (Native Tooltip)",
+                storyNumber: "3",
+                heading: "Native Hover Tooltip (Title Attribute)",
+                paragraph: "Renders standard browser-native hover tooltips via the title attribute without extra JS libraries.",
                 cellValue: "",
-                options: { controlType: "text", showInput: true, title: "This is a native HTML tooltip provided by the title attribute!", placeholder: "Hover over me to see tooltip...", theme: "verticalStandard" }
+                options: { controlType: "text", showInput: true, title: "Native HTML browser tooltip active!", placeholder: "Hover mouse over me to see native tooltip...", theme: "verticalStandard" }
             },
             {
-                label: "Spellcheck Disabled",
-                cellValue: "Teh qcuik bworhn foxx (no red squiggles)",
-                options: { controlType: "text", showInput: true, spellcheck: false, theme: "verticalStandard" }
+                storyNumber: "4",
+                heading: "Spellcheck & Language Direction Story",
+                paragraph: "Disables browser red squiggly spellcheck lines and sets text direction (e.g. Right-To-Left for Arabic/Hebrew).",
+                cellValue: "Teh qcuik bworhn foxx (no spellcheck squiggles)",
+                options: { controlType: "text", showInput: true, spellcheck: false, dir: "ltr", theme: "verticalStandard" }
             },
             {
-                label: "Direction RTL (Right-to-Left)",
-                cellValue: "مرحبا بالعالم",
-                options: { controlType: "text", showInput: true, dir: "rtl", theme: "verticalStandard" }
-            },
-            {
-                label: "Autocomplete (Email)",
-                cellValue: "",
-                options: { controlType: "email", showInput: true, autocomplete: "email", placeholder: "Start typing email (triggers browser autofill)", theme: "verticalStandard" }
-            },
-            {
-                label: "Size Constraint (Visual width: 15 chars)",
-                cellValue: "",
-                options: { controlType: "text", showInput: true, size: 15, placeholder: "15 chars wide...", theme: "default" }
-            },
-            {
-                label: "Native MinLength / MaxLength constraints",
-                cellValue: "Too short",
-                options: { controlType: "text", showInput: true, minLength: 15, maxLength: 20, theme: "verticalStandard" }
+                storyNumber: "5",
+                heading: "Browser Native Minimum Length Constraint (minlength)",
+                paragraph: "Enforces browser-level form validation requiring a minimum number of characters before form submission.",
+                cellValue: "ab",
+                options: { controlType: "text", showInput: true, minlength: 5, required: true, title: "Requires at least 5 characters!", theme: "verticalStandard" }
             }
         ];
 
-        // Insert before the submit button
-        const submitButtonDiv = container.querySelector('.border-t');
+        stories.forEach(story => {
+            const card = document.createElement('div');
+            card.className = "p-6 border border-gray-200 rounded-xl shadow-sm bg-white space-y-3";
 
-        testCases.forEach((tc) => {
-            // 1. Create wrapper
-            const wrapper = document.createElement('div');
-            wrapper.className = "flex flex-col space-y-2 p-5 border border-gray-100 rounded-lg bg-gray-50 hover:border-blue-300 transition-colors";
+            // Story Heading & Paragraph
+            card.innerHTML = `
+                <div class="flex items-center gap-2">
+                    <span class="bg-amber-100 text-amber-800 text-xs font-bold px-2.5 py-1 rounded-full uppercase">Story ${story.storyNumber}</span>
+                    <h3 class="text-lg font-bold text-gray-900">${story.heading}</h3>
+                </div>
+                <p class="text-sm text-gray-600 leading-relaxed">${story.paragraph}</p>
+                <div class="story-component-mount pt-2"></div>
+            `;
 
-            // 2. Create label
-            const label = document.createElement('label');
-            label.className = "text-sm font-semibold text-gray-700 tracking-wide";
-            label.textContent = tc.label;
-
-            const codeDesc = document.createElement('code');
-            codeDesc.className = "text-xs text-blue-600 block mb-2";
-            // Filter out boilerplate options for display
-            const displayOpts = { ...tc.options };
-            delete displayOpts.showInput;
-            delete displayOpts.theme;
-            delete displayOpts.controlType;
-            codeDesc.textContent = JSON.stringify(displayOpts);
-
-            // 3. Programmatically CREATE the custom Web Component
-            const cellComponent = document.createElement("ks-table-cell-content-common");
-
-            // 4. Set inputs via JS property
-            cellComponent.inputs = {
-                cellValue: tc.cellValue,
-                rowData: { id: 1 },
-                options: tc.options
+            const mountPoint = card.querySelector('.story-component-mount');
+            const comp = document.createElement('ks-table-cell-content-common');
+            comp.inputs = {
+                cellValue: story.cellValue,
+                options: story.options
             };
 
-            // 5. Append everything to DOM
-            wrapper.appendChild(label);
-            wrapper.appendChild(codeDesc);
-            wrapper.appendChild(cellComponent);
-            
-            container.insertBefore(wrapper, submitButtonDiv);
+            mountPoint.appendChild(comp);
+            container.appendChild(card);
         });
     </script>
 </body>
