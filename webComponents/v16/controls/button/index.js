@@ -3,7 +3,7 @@ import styles from "./styles.json" with { type: "json" };
 import { applyProperties } from "./applyProperties.js";
 import { applyStyles } from "./applyStyles.js";
 
-export function renderButton(element, config) {
+export function renderButton(config) {
     const controlElement = document.createElement("button");
 
     applyProperties(controlElement, config);
@@ -14,7 +14,7 @@ export function renderButton(element, config) {
 
     applyStyles(controlElement, config);
 
-    element.appendChild(controlElement);
+    return controlElement;
 }
 
 export { properties, styles };

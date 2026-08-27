@@ -3,15 +3,11 @@ import styles from "./styles.json" with { type: "json" };
 import { applyProperties } from "./applyProperties.js";
 import { applyStyles } from "./applyStyles.js";
 
-export function renderInput(config) {
+export function renderCheckbox(config) {
     const controlElement = document.createElement("input");
+    controlElement.type = "checkbox"; // Force checkbox type
 
     applyProperties(controlElement, config);
-
-    if (!config.type) {
-        controlElement.type = "text";
-    }
-
     applyStyles(controlElement, config);
 
     return controlElement;

@@ -3,13 +3,13 @@ import styles from "./styles.json" with { type: "json" };
 import { applyProperties } from "./applyProperties.js";
 import { applyStyles } from "./applyStyles.js";
 
-export function renderLabel(element, config) {
+export function renderLabel(config) {
     const controlElement = document.createElement("label");
 
     applyProperties(controlElement, config);
     applyStyles(controlElement, config);
 
-    element.appendChild(controlElement);
+    return controlElement;
 }
 
 export { properties, styles };

@@ -22,11 +22,15 @@ class ksWebComponent extends HTMLElement {
     render() {
         this.innerHTML = ""; // Clear existing content
         const config = this.getConfig();
-        renderBaseControl(this, config);
+        const controlElement = renderBaseControl(config);
+        
+        if (controlElement) {
+            this.appendChild(controlElement);
+        }
     }
 }
 
-registerComponent(ksWebComponent, "ks-web-component", "v15", "base");
+registerComponent(ksWebComponent, "ks-web-component", "v16", "base");
 
 // Register properties globally for easy access
 window.ks.webComponents.base.CONTROL_PROPERTIES = CONTROL_PROPERTIES;
