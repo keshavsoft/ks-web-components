@@ -1,0 +1,4 @@
+{
+    "default": "flex flex-col gap-4",
+    "compact": "flex flex-col gap-2"
+}
