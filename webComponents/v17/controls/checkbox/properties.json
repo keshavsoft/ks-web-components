@@ -1,0 +1,11 @@
+[
+    "id",
+    "className",
+    "name",
+    "type",
+    "checked",
+    "disabled",
+    "theme",
+    "tabIndex",
+    "autofocus"
+]
