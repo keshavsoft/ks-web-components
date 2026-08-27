@@ -1,10 +1,7 @@
+import themes from "./themes.json" with { type: "json" };
+
 export function getContainer(themeAttribute) {
     const theme = themeAttribute || "default";
-    const themes = {
-        "default": "flex flex-col gap-2 p-4 bg-white rounded shadow-sm border border-gray-200",
-        "borderless": "flex flex-col gap-2 py-2",
-        "compact": "flex flex-col gap-1 p-2 bg-gray-50 rounded border border-gray-300 text-sm"
-    };
     const containerClass = themes[theme] || themes["default"];
 
     const container = document.createElement("div");
