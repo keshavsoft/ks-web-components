@@ -26,7 +26,7 @@ class ksWebComponent extends HTMLElement {
     }
 }
 
-registerComponent(ksWebComponent, "ks-web-component", "v14", "base");
+registerComponent(ksWebComponent, "ks-web-component", "v15", "base");
 
 export { ksWebComponent };
 export default ksWebComponent;

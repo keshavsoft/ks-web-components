@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Base Controls Test - JS Options</title>
 </head>
+
 <body>
     <h2>Label Control (Via JS Options)</h2>
     <!-- Rendered via JS below -->
@@ -18,12 +20,12 @@
     <div id="button-container"></div>
 
     <script type="module">
-        import "../../webComponents/v14/ksWebComponent.js";
+        import "../../index.js";
 
         // Example 1: Create element fully via JS and append
         const labelEl = document.createElement("ks-web-component");
-        labelEl._options = { 
-            controlType: "label", 
+        labelEl._options = {
+            controlType: "label",
             text: "This label was created 100% via JavaScript!",
             className: "text-bold"
         };
@@ -50,4 +52,5 @@
         document.getElementById("button-container").appendChild(btnEl);
     </script>
 </body>
+
 </html>
