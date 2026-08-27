@@ -16,13 +16,22 @@ export class ksHorizontalForm extends HTMLElement {
         const themeObj = themes[this.getAttribute("ks-theme")] || themes["default"];
 
         const userConfig = this.config || {};
-        const config = {
-            head: userConfig.head || this._head || defaultOptions.head,
-            body: userConfig.body || this._body || defaultOptions.body,
-            foot: userConfig.foot || this._foot || defaultOptions.foot,
-            order: userConfig.order || this._order || defaultOptions.order
+        const isConfigProvided = this.config !== undefined;
+
+        // If the user explicitly provided a config object, we strictly use it. 
+        // Omitted sections will evaluate to undefined and won't be rendered.
+        // If no config object is provided, we fall back to legacy props or defaultOptions.
+        const config = isConfigProvided ? {
+            head: userConfig.head,
+            body: userConfig.body,
+            foot: userConfig.foot,
+            order: userConfig.order || defaultOptions.order
+        } : {
+            head: this._head !== undefined ? this._head : defaultOptions.head,
+            body: this._body !== undefined ? this._body : defaultOptions.body,
+            foot: this._foot !== undefined ? this._foot : defaultOptions.foot,
+            order: this._order !== undefined ? this._order : defaultOptions.order
         };
-        console.log("ksHorizontalForm config : ", this, config);
 
         const headElement = generateHeader(config.head, themeObj);
         const bodyElement = generateControls(config.body, themeObj);
@@ -41,7 +50,7 @@ export class ksHorizontalForm extends HTMLElement {
 registerComponent({
     inComponentClass: ksHorizontalForm,
     inTagName: "ks-horizontal-form",
-    inVersion: "v21",
+    inVersion: "v22",
     inNamespaceKey: "composite"
 });
 

@@ -1,4 +1,4 @@
-export { KsTableCellContent } from './webComponents/v13/KsTableCellContent.js';
+export { KsTableCellContent } from './webComponents/v22/KsTableCellContent.js';
 
 export { ksWebComponent } from './webComponents/v22/ksWebComponent.js';
 export { ksVerticalFormRow } from './webComponents/v22/composites/verticalFormRow/index.js';

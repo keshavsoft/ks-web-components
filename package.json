@@ -41,5 +41,8 @@
   "homepage": "https://keshavsoft.github.io/ks-web-components/",
   "devDependencies": {
     "vite": "^8.2.1"
+  },
+  "dependencies": {
+    "puppeteer": "^25.9.0"
   }
 }
