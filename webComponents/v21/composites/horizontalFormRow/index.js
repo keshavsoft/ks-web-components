@@ -4,7 +4,7 @@ import { generateControls } from "./generateControls.js";
 import { composeOrder } from "./composeOrder.js";
 import themes from "./themes.json" with { type: "json" };
 
-class ksVerticalFormRow extends HTMLElement {
+class ksHorizontalFormRow extends HTMLElement {
     constructor() {
         super();
     }
@@ -26,10 +26,10 @@ class ksVerticalFormRow extends HTMLElement {
 
         // 1. Get Theme Container
         const container = getContainer(this.getAttribute("ks-theme"));
-
+        
         // 2. Generate required controls
         const controls = generateControls(this);
-
+        
         // 3. Compose them in the requested order
         composeOrder(container, controls, this.getAttribute("ks-order"));
 
@@ -40,14 +40,14 @@ class ksVerticalFormRow extends HTMLElement {
 
 // Register as a composite component
 registerComponent({
-    inComponentClass: ksVerticalFormRow,
-    inTagName: "ks-vertical-form-row",
-    inVersion: "v20",
+    inComponentClass: ksHorizontalFormRow,
+    inTagName: "ks-horizontal-form-row",
+    inVersion: "v19",
     inNamespaceKey: "composite"
 });
 
 // Attach themes to class for easy global access
-ksVerticalFormRow.themes = themes;
+ksHorizontalFormRow.themes = themes;
 
-export { ksVerticalFormRow };
-export default ksVerticalFormRow;
+export { ksHorizontalFormRow };
+export default ksHorizontalFormRow;
