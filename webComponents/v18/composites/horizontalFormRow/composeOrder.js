@@ -1,5 +1,5 @@
 export function composeOrder(container, controls, orderAttr) {
-    const order = (orderAttr || "label,input,button").split(",").map(s => s.trim().toLowerCase());
+    const order = (orderAttr || "label,input,checkbox,button").split(",").map(s => s.trim().toLowerCase());
 
     order.forEach(controlName => {
         if (controls[controlName]) {

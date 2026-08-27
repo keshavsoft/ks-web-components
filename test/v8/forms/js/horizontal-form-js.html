@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizontal Form (JS)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="p-8 bg-gray-50 flex flex-col gap-8 max-w-4xl mx-auto mb-20">
+    <a href="index.html" class="text-blue-500 hover:underline">&larr; Back to JS Forms Index</a>
+    
+    <h1 class="text-2xl font-bold">Horizontal Form Built via JavaScript</h1>
+    <p class="text-gray-600">The forms below are built dynamically by setting the <code class="bg-gray-200 px-1 rounded">_options</code> property.</p>
+
+    <!-- Containers for JS injection -->
+    <div id="search-container" class="mb-4">
+        <h3 class="text-sm font-semibold text-gray-500 mb-2">1. Borderless Search</h3>
+    </div>
+    
+    <div id="newsletter-container" class="mb-4">
+        <h3 class="text-sm font-semibold text-gray-500 mb-2">2. Newsletter with Checkbox</h3>
+    </div>
+
+    <script type="module" src="../../../../index.js"></script>
+    <script type="module">
+        // 1. Search Bar
+        const searchForm = document.createElement("ks-horizontal-form-row");
+        searchForm._options = {
+            theme: "borderless",
+            order: "input,button",
+            inputType: "text",
+            inputPlaceholder: "Search records...",
+            buttonText: "Search"
+        };
+        document.getElementById("search-container").appendChild(searchForm);
+
+        // 2. Newsletter Form
+        const newsForm = document.createElement("ks-horizontal-form-row");
+        newsForm._options = {
+            theme: "compact",
+            order: "checkbox,label,input,button",
+            showCheckbox: "true",
+            checkboxChecked: "true",
+            labelText: "Subscribe",
+            inputType: "email",
+            inputPlaceholder: "email@example.com",
+            buttonText: "Join",
+            buttonTheme: "danger"
+        };
+        document.getElementById("newsletter-container").appendChild(newsForm);
+    </script>
+</body>
+</html>

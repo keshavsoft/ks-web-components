@@ -15,6 +15,14 @@ class ksHorizontalFormRow extends HTMLElement {
     render() {
         this.innerHTML = ""; // Clear existing content
 
+        // Support JS Options by syncing them to attributes
+        if (this._options) {
+            for (const [key, value] of Object.entries(this._options)) {
+                const attrName = "ks-" + key.replace(/[A-Z]/g, letter => `-${letter.toLowerCase()}`);
+                this.setAttribute(attrName, String(value));
+            }
+        }
+
         // 1. Get Theme Container
         const container = getContainer(this.getAttribute("ks-theme"));
         

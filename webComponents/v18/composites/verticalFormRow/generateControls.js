@@ -23,6 +23,15 @@ export function generateControls(element) {
         });
     }
 
+    // Generate Checkbox
+    if (element.hasAttribute("ks-show-checkbox") && element.getAttribute("ks-show-checkbox") !== "false") {
+        controls["checkbox"] = renderBaseControl({
+            controlType: "checkbox",
+            id: element.getAttribute("ks-checkbox-id") || "",
+            checked: element.hasAttribute("ks-checkbox-checked") ? element.getAttribute("ks-checkbox-checked") !== "false" : false
+        });
+    }
+
     // Generate Button
     const buttonText = element.getAttribute("ks-button-text");
     if (buttonText) {
