@@ -2,5 +2,6 @@
     "id",
     "className",
     "name",
-    "text"
+    "text",
+    "theme"
 ]

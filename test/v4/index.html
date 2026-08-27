@@ -5,17 +5,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Base Controls Test</title>
+    <!-- Tailwind for testing predefined classes -->
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
-    <h2>Label Control</h2>
-    <ks-web-component ks-control-type="label" ks-text="This is a test label"></ks-web-component>
+<body class="p-8 bg-gray-50 flex flex-col gap-6">
+    <div>
+        <h2 class="text-lg font-bold mb-2">Label Control (Default theme)</h2>
+        <ks-web-component ks-control-type="label" ks-text="This is a standard label"></ks-web-component>
+    </div>
 
-    <h2>Input Control</h2>
-    <ks-web-component ks-control-type="input" ks-type="text" ks-placeholder="Enter some text"></ks-web-component>
+    <div>
+        <h2 class="text-lg font-bold mb-2">Input Control (Default theme)</h2>
+        <ks-web-component ks-control-type="input" ks-type="text" ks-placeholder="Default style"></ks-web-component>
+    </div>
 
-    <h2>Button Control</h2>
-    <ks-web-component ks-control-type="button" ks-text="Click Me" ks-class-name="btn-primary"></ks-web-component>
+    <div>
+        <h2 class="text-lg font-bold mb-2">Input Control (Pill theme)</h2>
+        <ks-web-component ks-control-type="input" ks-type="text" ks-placeholder="Pill style" ks-theme="pill"></ks-web-component>
+    </div>
+
+    <div>
+        <h2 class="text-lg font-bold mb-2">Input Control (Danger theme)</h2>
+        <ks-web-component ks-control-type="input" ks-type="password" ks-placeholder="Danger style" ks-theme="danger"></ks-web-component>
+    </div>
+
+    <div>
+        <h2 class="text-lg font-bold mb-2">Button Control (Default theme)</h2>
+        <ks-web-component ks-control-type="button" ks-text="Submit"></ks-web-component>
+    </div>
+
+    <div>
+        <h2 class="text-lg font-bold mb-2">Button Control (Vertical Large Text theme)</h2>
+        <ks-web-component ks-control-type="button" ks-text="Huge Button" ks-theme="verticalLargeText"></ks-web-component>
+    </div>
 
     <script type="module" src="../../index.js"></script>
 </body>
