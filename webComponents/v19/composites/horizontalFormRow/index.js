@@ -39,7 +39,12 @@ class ksHorizontalFormRow extends HTMLElement {
 }
 
 // Register as a composite component
-registerComponent(ksHorizontalFormRow, "ks-horizontal-form-row", "v18", "composite");
+registerComponent({
+    inComponentClass: ksHorizontalFormRow,
+    inTagName: "ks-horizontal-form-row",
+    inVersion: "v19",
+    inNamespaceKey: "composite"
+});
 
 // Attach themes to class for easy global access
 ksHorizontalFormRow.themes = themes;

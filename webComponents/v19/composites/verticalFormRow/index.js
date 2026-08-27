@@ -39,7 +39,12 @@ class ksVerticalFormRow extends HTMLElement {
 }
 
 // Register as a composite component
-registerComponent(ksVerticalFormRow, "ks-vertical-form-row", "v18", "composite");
+registerComponent({
+    inComponentClass: ksVerticalFormRow,
+    inTagName: "ks-vertical-form-row",
+    inVersion: "v19",
+    inNamespaceKey: "composite"
+});
 
 // Attach themes to class for easy global access
 ksVerticalFormRow.themes = themes;

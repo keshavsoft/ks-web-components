@@ -18,20 +18,25 @@
 
     <script type="module" src="../../../../index.js"></script>
     <script type="module">
+        const columns = ["Name", "Mobile", "city"];
+
         const fourRowsContainer = document.getElementById("four-rows-container");
-        for (let i = 1; i <= 4; i++) {
+
+        columns.forEach(column => {
             const row = document.createElement("ks-horizontal-form-row");
             // Add some margin bottom for spacing between rows
             row.className = "block mb-4";
             row._options = {
-                theme: "default",
+                theme: "borderless",
                 order: "label,input",
-                labelText: `Field Label ${i}`,
+                labelText: `Field Label ${column}`,
                 inputType: "text",
-                inputPlaceholder: `Enter value for field ${i}...`
+                inputPlaceholder: `Enter value for field ${column}...`
             };
+
             fourRowsContainer.appendChild(row);
-        }
+        });
+
     </script>
 </body>
 

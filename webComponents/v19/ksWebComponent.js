@@ -30,7 +30,12 @@ class ksWebComponent extends HTMLElement {
     }
 }
 
-registerComponent(ksWebComponent, "ks-web-component", "v16", "base");
+registerComponent({
+    inComponentClass: ksWebComponent,
+    inTagName: "ks-web-component",
+    inVersion: "v19",
+    inNamespaceKey: "base"
+});
 
 // Register properties globally for easy access
 window.ks.webComponents.base.CONTROL_PROPERTIES = CONTROL_PROPERTIES;

@@ -1,13 +1,18 @@
-export function registerComponent(ComponentClass, tagName, version, namespaceKey) {
-    if (!customElements.get(tagName)) {
-        customElements.define(tagName, ComponentClass);
-    }
+export function registerComponent({ inComponentClass, inTagName, inVersion, inNamespaceKey }) {
+    const localComponentClass = inComponentClass;
+    const localTagName = inTagName;
+    const localVersion = inVersion;
+    const localNamespaceKey = inNamespaceKey;
+
+    if (!customElements.get(localTagName)) {
+        customElements.define(localTagName, localComponentClass);
+    };
 
     window.ks = window.ks || {};
     window.ks.webComponents = window.ks.webComponents || {};
-    window.ks.webComponents[namespaceKey] = window.ks.webComponents[namespaceKey] || {};
+    window.ks.webComponents[localNamespaceKey] = window.ks.webComponents[localNamespaceKey] || {};
 
     // Now register the component under the namespace
-    window.ks.webComponents[namespaceKey][ComponentClass.name] = ComponentClass;
-    window.ks.webComponents[namespaceKey][ComponentClass.name].version = version;
-}
+    window.ks.webComponents[localNamespaceKey][localComponentClass.name] = localComponentClass;
+    window.ks.webComponents[localNamespaceKey][localComponentClass.name].version = localVersion;
+};
